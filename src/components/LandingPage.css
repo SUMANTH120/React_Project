@@ -1,0 +1,94 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background: url('https://www.shutterstock.com/image-vector/medicine-concept-doctor-patient-flat-600nw-582465943.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    /* color: #ffffff; */
+  }
+  
+  /* Landing Page Styles */
+  .landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  /* Logo Styles */
+  .logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 120px;
+  }
+  
+  /* Heading Styles */
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #1E90FF; /* Dodger Blue for the main heading */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: #4682B4; /* Steel Blue for the subheading */
+    font-style: italic;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Card Container */
+  .card-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  /* Card Styles */
+  .card {
+    background: rgba(255, 255, 255, 0.8);
+    color: #333;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .card h2 {
+    margin-bottom: 10px;
+    color: #444;
+  }
+  
+  .card p {
+    font-size: 0.9rem;
+  }
+  
+  /* Card Hover and Active Effects */
+  .card:hover {
+    background: #4CAF50;
+    color: white;
+    transform: translateY(-5px);
+  }
+  
+  .card:active {
+    background: #388E3C;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .card-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  }
+  
