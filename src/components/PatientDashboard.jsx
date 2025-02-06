@@ -19,7 +19,7 @@ const PatientDashboard = () => {
   const fetchDoctors = async () => {
     if (!specialty) return;
     try {
-      const response = await fetch(`https://your-api-url.com/api/doctors?specialty=${specialty}`);
+      const response = await fetch(`https://backend-0ira.onrender.com/api/doctors?specialty=${specialty}`);
       const data = await response.json();
       setDoctors(data.doctors || []);
     } catch (error) {
