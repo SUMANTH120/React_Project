@@ -1,4 +1,4 @@
-.footer {
+/* .footer {
     text-align: center;
     margin-top: 20px;
     padding: 10px;
@@ -19,4 +19,12 @@
   .footer-links a:hover {
     text-decoration: underline;
   }
-  
+   */
+   footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+  }

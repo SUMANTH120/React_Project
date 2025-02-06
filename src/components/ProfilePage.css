@@ -1,0 +1,110 @@
+/* General Styles */
+.profile-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Arial", sans-serif;
+  overflow: visible;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 0px;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styling */
+button {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(45deg, #007bff, #00bfff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+  background: linear-gradient(45deg, #0056b3, #0096c7);
+}
+
+/* Timestamp Styling */
+.timestamps {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background: #f8f9fa;
+  font-size: 14px;
+  color: #555;
+  font-style: italic;
+}
+
+/* Special Message for No Profile Found */
+.no-profile {
+  color: #d9534f;
+  font-size: 18px;
+  font-weight: bold;
+  background: #ffe0e0;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 20px;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Message Styling */
+.message {
+  color: #28a745;
+  font-size: 16px;
+  margin-top: 15px;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Smooth Fade-in Effect */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

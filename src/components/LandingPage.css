@@ -4,7 +4,6 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background: url('https://www.shutterstock.com/image-vector/medicine-concept-doctor-patient-flat-600nw-582465943.jpg') no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
     /* color: #ffffff; */
@@ -75,7 +74,7 @@ body, html {
   
   /* Card Hover and Active Effects */
   .card:hover {
-    background: #4CAF50;
+    background: rgba(245, 255, 245, 0.8);
     color: white;
     transform: translateY(-5px);
   }

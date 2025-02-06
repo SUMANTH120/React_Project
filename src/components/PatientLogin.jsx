@@ -7,18 +7,25 @@ const PatientLogin = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
+    const response = await fetch("http://localhost:3007/api/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    });
 
-    // Hardcoded credentials for testing
-    const sampleEmail = "test@example.com";
-    const samplePassword = "password";
-
-    if (email === sampleEmail && password === samplePassword) {
+    const data = await response.json();
+    if (data.success) {
       alert("Login Successful");
-      navigate("/patient-dashboard"); // Navigate to the dashboard
+
+      // Store email in sessionStorage
+      sessionStorage.setItem("userEmail", email);
+
+      // Navigate to patient dashboard or profile setup
+      navigate("/patient-dashboard");
     } else {
-      alert("Invalid email or password. Please try again.");
+      alert(data.message || "Invalid credentials");
     }
   };
 
@@ -43,10 +50,7 @@ const PatientLogin = () => {
         <button type="submit">Login</button>
       </form>
       <p>
-        New User?{" "}
-        <span onClick={() => navigate("/patient-signup")} style={{ cursor: "pointer", color: "blue" }}>
-          Sign Up
-        </span>
+        New User? <span onClick={() => navigate("/patient-signup")}>Sign Up</span>
       </p>
     </div>
   );
