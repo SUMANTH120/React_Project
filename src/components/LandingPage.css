@@ -6,25 +6,31 @@ body, html {
     font-family: Arial, sans-serif;
     background-size: cover;
     height: 100vh;
+    width: 100%;
     /* color: #ffffff; */
   }
   
   /* Landing Page Styles */
   .landing-page {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-    padding: 20px;
+    text-align: center; */
+    width: 100%;
+    /* padding: 20px; */
   }
-  
-  /* Logo Styles */
+  .content-container{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  /* Logo Styles
   .logo {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 120px;
-  }
+  } */
   
   /* Heading Styles */
   h1 {

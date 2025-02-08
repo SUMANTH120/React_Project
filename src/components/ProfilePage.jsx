@@ -40,8 +40,6 @@ const ProfilePage = () => {
         });
         setMessage("Profile data loaded.");
       } else {
-        setProfile({ name: "", fatherName: "", dateOfBirth: "", gender: "", otherDetails: "" });
-        setTimestamps({ created_at: "", updated_at: "" });
         setMessage("No profile found. Please create one.");
       }
     } catch (error) {
@@ -87,12 +85,14 @@ const ProfilePage = () => {
 
       {!email ? (
         <div className="no-profile">No email found! Please log in first.</div>
-      ) : message === "No profile found. Please create one." ? (
-        <div className="no-profile">
-          No profile found! Please fill in your details and save.
-        </div>
       ) : (
         <form onSubmit={submitProfile}>
+          {message === "No profile found. Please create one." && (
+            <div className="no-profile">
+              No profile found! Please fill in your details and save.
+            </div>
+          )}
+
           <div className="form-group">
             <label>Email:</label>
             <input type="email" value={email} readOnly />
@@ -136,10 +136,10 @@ const ProfilePage = () => {
           )}
 
           <button type="submit" disabled={loading}>{loading ? "Saving..." : "Save Profile"}</button>
+
+          {message && <p className="message">{message}</p>}
         </form>
       )}
-
-      {message && <p className="message">{message}</p>}
     </div>
   );
 };

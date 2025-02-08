@@ -4,9 +4,9 @@ import './LandingPage.css';
 const LandingPage = () => {
   return (
     <div className="landing-page">
-      <header className="header">
+      {/* <header className="header">
         <img src="logo.jpeg" alt="TeleMed Logo" className="logo" />
-      </header>
+      </header> */}
       <div className="content-container">
         <h1>Welcome to MediLink</h1>
         <p>Your gateway to seamless online consultations</p>

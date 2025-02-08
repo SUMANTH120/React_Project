@@ -1,198 +1,129 @@
-/* Global Styles */
-body,
-html {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
+/* ===== Wrapper for Sidebar and Content ===== */
+.wrapper {
+  display: flex;
+  align-items: stretch;
 }
 
-/* Dashboard Container */
-.dashboard-page {
-  display: flex;
-  flex-direction: column;
+/* ===== Sidebar Styles ===== */
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
   min-height: 100vh;
+  transition: all 0.3s;
 }
 
-/* Navbar Styles */
-.custom-navbar {
-  width: 100%;
-  background-color: #2c3e50;
-  color: #fff;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+#sidebar .sidebar-header {
+  background: #343a40;
 }
 
-.navbar-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: #fff;
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.brand-name {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links li {
-  margin-left: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #fff;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #f39c12;
-}
-
-/* Search Bar Styles */
-.search-bar {
-  background-color: #ecf0f1;
+#sidebar ul.components {
   padding: 20px 0;
 }
 
-.search-form {
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto;
+#sidebar ul li {
+  padding: 10px;
+  font-size: 1.1em;
+}
+
+#sidebar ul li a {
+  color: #d1d1d1;
+  text-decoration: none;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  background: #575757;
+  color: #fff;
+}
+
+/* ===== Sidebar Collapse ===== */
+.wrapper.sidebar-closed #sidebar {
+  margin-left: -250px;
+}
+
+/* ===== Content Styles ===== */
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+/* ===== Search Dropdown Styles ===== */
+.specialty-dropdown {
+  z-index: 1000;
+  top: 100%;
+  left: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* ===== Doctor Card Hover Effect ===== */
+.doctor-card {
+  transition: transform 0.2s;
+}
+
+.doctor-card:hover {
+  transform: scale(1.02);
+}
+.navbar {
+  padding: 10px 15px;
+}
+
+#sidebarCollapse {
+  font-size: 1.5rem;
+  border: none;
+}
+
+#sidebarCollapse i {
+  color: #333; /* Change color as needed */
+}
+
+
+
+/* Hamburger Icon */
+.hamburger-icon {
+  font-size: 1.5rem;
+  color: white;
+}
+#hamm {
+  color: white !important; /* Makes the hamburger icon white */
+  cursor: pointer; /* Ensures it's clickable */
+}
+/* #search_bar{
   display: flex;
   align-items: center;
+  width: 400px;
 }
+#button_bar{
 
-.search-form input {
-  width: 100%;
-  padding: 12px 16px;
-  font-size: 16px;
-  border: 2px solid #bdc3c7;
-  border-radius: 4px;
-  transition: border-color 0.3s ease;
-}
-
-.search-form input:focus {
-  border-color: #2980b9;
-  outline: none;
-}
-
-.search-form button {
-  margin-left: 10px;
-  padding: 12px 20px;
-  font-size: 16px;
-  background-color: #2980b9;
-  border: none;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.search-form button:hover {
-  background-color: #1c5980;
-}
-
-.specialty-dropdown {
-  position: absolute;
-  top: 48px;
-  left: 0;
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid #bdc3c7;
-  border-radius: 4px;
-  max-height: 200px;
-  overflow-y: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  z-index: 1000;
-}
-
-.specialty-dropdown li {
-  padding: 10px 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.specialty-dropdown li:hover {
-  background-color: #ecf0f1;
-}
-
-/* Cards Section Styles */
-.cards-container {
+} */
+/* ===== Updated Search Bar Styling ===== */
+#search_bar {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 40px 20px;
-  gap: 20px;
-  flex-grow: 1;
-}
-
-.card {
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 300px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-  text-align: center;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-.card h3 {
-  margin-top: 0;
-  color: #2c3e50;
-}
-
-.card p {
-  color: #7f8c8d;
-  font-size: 14px;
-}
-
-.card-button {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #2980b9;
-  color: #fff;
-  text-decoration: none;
+  align-items: center;
+  width: 300px; /* Adjusted width to be smaller */
+  margin: 0 auto; /* Center the search bar */
+  border: 1px solid #ccc;
   border-radius: 4px;
+  overflow: hidden; /* Ensures button and input stay aligned */
+}
+
+/* ===== Updated Search Button Styling ===== */
+#button_bar {
+  position: relative;
+  background-color: #007bff;
+  color: white;
+  width: 200px;
+  border: none;
+  margin-left: 760px;
+  margin-top:0px;
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0; /* Rounds only right side */
   transition: background-color 0.3s ease;
 }
 
-.card-button:hover {
-  background-color: #1c5980;
-}
-
-/* Footer Styles */
-.custom-footer {
-  background-color: #2c3e50;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
+#button_bar:hover {
+  background-color: #0056b3;
 }
