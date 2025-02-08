@@ -26,7 +26,7 @@ const MyAppointments = () => {
     }
   }, [userEmail]);
 
-  // Function to select an available time slot and update MongoDB
+  // Function to select a time slot and update MongoDB
   const selectTime = async (appointmentId, time) => {
     try {
       const response = await fetch(`http://localhost:5001/api/appointments/select-time/${appointmentId}`, {
@@ -70,44 +70,47 @@ const MyAppointments = () => {
 
   return (
     <div className="container mt-4">
-      <h2>My Appointments</h2>
-      {appointments.length > 0 ? (
-        appointments.map((appointment) => (
-          <div key={appointment._id} className="card mb-3 appointment-card">
-            <div className="card-body">
-              <img src={appointment.image} alt={appointment.doctorName} className="doctor-image" />
-              <h5 className="card-title">
-                {appointment.doctorName} - {appointment.specialty}
-              </h5>
-              <p className="appointment-status">
-                <strong>Status:</strong> {appointment.selectedTime ? `Scheduled at ${appointment.selectedTime}` : "Pending"}
-              </p>
+      <h2 className="mb-4">My Appointments</h2>
+      <div className="appointment-grid">
+        {appointments.length > 0 ? (
+          appointments.map((appointment) => (
+            <div key={appointment._id} className="card appointment-card">
+              <div className="card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0h9vVg5W8izFvUJh4UT92Swhi-K4Jm-TdMQ&s" alt={appointment.doctorName} className="doctor-image" />
+                <h5 className="card-title">{appointment.doctorName} - {appointment.specialty}</h5>
+                <p className="appointment-status">
+                  <strong>Status:</strong> {appointment.selectedTime ? `Scheduled at ${appointment.selectedTime}` : "Pending"}
+                </p>
 
-              {!appointment.selectedTime && (
-                <div className="time-selection">
-                  <h6>Select a Time:</h6>
-                  {appointment.availableTimes && appointment.availableTimes.length > 0 ? (
-                    appointment.availableTimes.map((time, i) => (
-                      <button key={i} className="btn btn-outline-primary me-2 time-slot" onClick={() => selectTime(appointment._id, time)}>
-                        {time}
-                      </button>
-                    ))
-                  ) : (
-                    <p>No available times.</p>
-                  )}
-                </div>
-              )}
+                {/* Show time selection only if no time is selected yet */}
+                {!appointment.selectedTime && (
+                  <div className="time-selection">
+                    <h6>Select a Time Slot:</h6>
+                    <div className="time-slot-container">
+                      {appointment.availableTimes && appointment.availableTimes.length > 0 ? (
+                        appointment.availableTimes.map((time, i) => (
+                          <button key={i} className="time-slot-button" onClick={() => selectTime(appointment._id, time)}>
+                            {time}
+                          </button>
+                        ))
+                      ) : (
+                        <p>No available times.</p>
+                      )}
+                    </div>
+                  </div>
+                )}
 
-              {appointment.selectedTime && <button className="btn btn-success mt-2">Pay</button>}
-              <button className="btn btn-danger mt-2 ms-2" onClick={() => cancelAppointment(appointment._id)}>
-                Cancel Appointment
-              </button>
+                {appointment.selectedTime && <button className="btn btn-success mt-3">Pay</button>}
+                <button className="btn btn-danger mt-2 ms-2" onClick={() => cancelAppointment(appointment._id)}>
+                  Cancel Appointment
+                </button>
+              </div>
             </div>
-          </div>
-        ))
-      ) : (
-        <p>No appointments booked yet.</p>
-      )}
+          ))
+        ) : (
+          <p>No appointments booked yet.</p>
+        )}
+      </div>
     </div>
   );
 };

@@ -9,6 +9,7 @@
   min-width: 250px;
   max-width: 250px;
   min-height: 100vh;
+  
   transition: all 0.3s;
 }
 
@@ -52,6 +53,7 @@
 /* ===== Search Dropdown Styles ===== */
 .specialty-dropdown {
   z-index: 1000;
+  min-width: 300px;
   top: 100%;
   left: 0;
   border: 1px solid #ccc;
@@ -59,13 +61,7 @@
 }
 
 /* ===== Doctor Card Hover Effect ===== */
-.doctor-card {
-  transition: transform 0.2s;
-}
 
-.doctor-card:hover {
-  transform: scale(1.02);
-}
 .navbar {
   padding: 10px 15px;
 }
@@ -100,6 +96,8 @@
 } */
 /* ===== Updated Search Bar Styling ===== */
 #search_bar {
+  position: relative;
+  padding: 7px;
   display: flex;
   align-items: center;
   width: 300px; /* Adjusted width to be smaller */
@@ -111,17 +109,18 @@
 
 /* ===== Updated Search Button Styling ===== */
 #button_bar {
-  position: relative;
+  position: absolute;
   background-color: #007bff;
   color: white;
-  width: 200px;
+  width: 55px;
   border: none;
-  margin-left: 760px;
-  margin-top:0px;
-  padding: 8px 15px;
+  margin-left: 705px;
+  bottom: 2px;
+  padding: 6px 5px;
   cursor: pointer;
   border-radius: 0 4px 4px 0; /* Rounds only right side */
   transition: background-color 0.3s ease;
+  z-index: 100;
 }
 
 #button_bar:hover {

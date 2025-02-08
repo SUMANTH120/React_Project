@@ -222,6 +222,9 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { FaUserMd, FaUsers } from "react-icons/fa"; // Icons for doctors & patients
+import { MdAccessTime, MdMale, MdFemale } from "react-icons/md"; // Icons for experience & gender
+
 import "./PatientDashboard.css";
 
 const PatientDashboard = () => {
@@ -366,6 +369,9 @@ const PatientDashboard = () => {
           {/* ===== Search Bar ===== */}
           <div className="search-bar my-4">
             <form className="search-form position-relative" onSubmit={(e) => { e.preventDefault(); fetchDoctors(); }}>
+            <button type="button" id="button_bar" className="btn btn-primary mt-2" onClick={fetchDoctors}>
+                Search
+              </button>
               <input
                 type="search"
                 className="form-control"
@@ -386,11 +392,12 @@ const PatientDashboard = () => {
                   ))}
                 </ul>
               )}
-              <button type="button" id="button_bar" className="btn btn-primary mt-2" onClick={fetchDoctors}>
+              {/* <button type="button" id="button_bar" className="btn btn-primary mt-2" onClick={fetchDoctors}>
                 Search
-              </button>
+              </button> */}
             </form>
           </div>
+
 
           {/* ===== Doctors List ===== */}
           <div className="doctors-container row">
@@ -398,16 +405,17 @@ const PatientDashboard = () => {
               doctors.map((doctor, index) => (
                 <div key={index} className="col-md-4 mb-4">
                   <div className="card doctor-card h-100">
-                    <img src={doctor.image} alt={doctor.name} className="card-img-top doctor-image" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0h9vVg5W8izFvUJh4UT92Swhi-K4Jm-TdMQ&s" alt={doctor.name} className="card-img-top doctor-image" />
                     <div className="card-body">
-                      <h5 className="card-title">{doctor.name}</h5>
-                      <p className="card-text">
+                      <h4 className="doctor-name">{doctor.name}</h4>
+                      <p className="doctor-info">
                         <strong>Age:</strong> {doctor.age} <br />
-                        <strong>Gender:</strong> {doctor.gender} <br />
-                        <strong>Experience:</strong> {doctor.experience} years <br />
-                        <strong>Patients Consulted:</strong> {doctor.patients_consulted}
+                        {doctor.gender === "Male" ? <MdMale className="icon male-icon" /> : <MdFemale className="icon female-icon" />}
+                        <strong> Gender:</strong> {doctor.gender} <br />
+                        <MdAccessTime className="icon" /> <strong> Experience:</strong> {doctor.experience} years <br />
+                        <FaUsers className="icon" /> <strong> Patients Consulted:</strong> {doctor.patients_consulted}
                       </p>
-                      <button className="btn btn-success" onClick={() => bookAppointment(doctor)}>
+                      <button className="btn btn-primary book-btn" onClick={() => bookAppointment(doctor)}>
                         Book Appointment
                       </button>
                     </div>
